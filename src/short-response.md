@@ -1,6 +1,7 @@
 # Short Responses
 
 For this short response assignment, aim to write a response with the following qualities (your instructor will give you feedback on these areas):
+
 - [] Addresses all parts of the prompt
 - [] Accurately uses relevant technical terminology
 - [] Is free of grammar and spelling mistakes (double check with grammarly!)
@@ -17,7 +18,7 @@ What are the core principles of encapsulation in object-oriented programming?
 
 ### Response 1
 
-Your response here...
+In object-oriented programming, **_encapsulation_** is the bundling of data into a **_class_** that has the **_methods_** that use that data. It protects an objects data by restricting direct access to it's properties through **_private fields_** or **_getter/setter methods_**. This helps prevent unwanted changes and allow for control of how the data is accessed or changed. Making the code safer and keeping it organized.
 
 ---
 
@@ -32,14 +33,14 @@ const multiplyNumsBy = (nums, multiplier) => {
   return nums.map((num) => num * multiplier);
 };
 
-const multiplesOfFive = multiplyNumsBy([1,2,3,4], 5); // [5, 10, 15, 20]
+const multiplesOfFive = multiplyNumsBy([1, 2, 3, 4], 5); // [5, 10, 15, 20]
 ```
 
 First, define what a **closure** is in your own words and then explain how this example includes a closure.
 
 ### Response 2
 
-Your response here...
+A **_closure_** is when an _inner_ function can access **_variables_** from its _outer_ function. This example includes a closure because the `multiplier` **_parameter_** in the outer function is **_referenced_** in the inner function.
 
 ---
 
@@ -54,17 +55,17 @@ const makeAnimal = (name, species, sound) => {
   const animal = {
     name: name,
     species: species,
-    makeNoise: () => {
-      console.log(`${this.name} the ${this.species} says ${sound}`)
-    }
-  }
+    makeNoise() {
+      console.log(`${this.name} the ${this.species} says ${sound}`);
+    },
+  };
   return animal;
-}
+};
 
-const betty = makeAnimal('betty', 'cat', 'meow');
+const betty = makeAnimal("betty", "cat", "meow");
 betty.makeNoise(); // undefined the undefined says meow
 
-const bugs = makeAnimal('bugs', 'bunny', 'whatsup doc');
+const bugs = makeAnimal("bugs", "bunny", "whatsup doc");
 bugs.makeNoise(); // undefined the undefined says meow says whatsup doc
 ```
 
@@ -76,4 +77,6 @@ Finally, update the code snippet above to fix it.
 
 ### Response 3
 
-Your response here...
+The `this` keyword refers to the _object_ that is currently _calling the method_.
+
+In the code above, the `makeNoise` method is not working because it is written as an **_arrow function_** and arrow functions do not have their own `this`. They inherit `this` from the _surrounding scope_ which is the `makeAnimal` function itself and not the the object, making it undefined.
